@@ -1,4 +1,5 @@
 import React, { Component } from 'react';
+import cars from './data/cars.json';
 import './App.css';
 
 // const  Hello = (props) => <p> { props.title }</p> 
@@ -48,18 +49,55 @@ Contador.defaultProps = {
 class ContadorNumero extends Component {
   render () {
     return <span>{ this.props.numero }</span>
+    
+  }
+}
+
+class CardItem extends Component {
+  render () {
+    const { car, id }  = this.props
+    return (
+      <li>
+        <p> key: {id} </p>
+        <p> <strong>Nombre: </strong>{ car.name }</p>
+        <p> <strong>Company: </strong>{ car.company }</p>
+      </li>
+    )
   }
 }
 class App extends Component {
   render () {
+    const numbers = [1 ,1, 3, 4, 5]
+
     return (
-      <div>
-        <p>Primer componente con state </p>
-        <Contador contadorInicial = { 100 }/>
-      </div>
+     <div className='App' > 
+       <h4> Trabajando con listas</h4>
+       {numbers.map((number, index) => {
+         return <p key={index}> Soy el numero { number} </p>
+       })}
+       <h4> Trabajando con listas de objetos</h4>
+      <ul>
+        {
+           cars.map(car => {
+             return <CardItem id={car.id} key={car.id} car={car}/>
+           })
+        }
+      </ul>
+     </div>
     )
   }
 }
+
+
+/*class App extends Component {
+  render () {
+    return (
+      <div>
+        <ConditionalSection/>
+      </div>
+    )
+  }
+}*/
 
 /* function App() {
   return (
