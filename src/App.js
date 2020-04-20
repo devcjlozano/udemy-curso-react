@@ -1,5 +1,6 @@
 import React, { Component } from 'react';
 import cars from './data/cars.json';
+import Forms from './sections/forms'
 import './App.css';
 
 // const  Hello = (props) => <p> { props.title }</p> 
@@ -65,7 +66,54 @@ class CardItem extends Component {
     )
   }
 }
+
+//Fomularios
+
 class App extends Component {
+  render () {
+    return (
+      <div className="App">
+        <Forms />
+      </div>
+    )
+  }
+}
+
+
+/*
+  
+EVENTOS
+class App extends Component {
+  constructor () {
+    super()
+    this.state = { mouseX: 0, mouseY: 0 }
+  }
+
+  handleMouseMove = e => {
+    const { clientX, clientY } = e
+    this.setState({ mouseX: clientX, mouseY: clientY}) 
+  }
+
+  handleClick = e => {
+    console.log(e)
+    alert('hi there!')
+  }
+  render () {
+    return (
+     <div className='App'> 
+      <h4> Eventos</h4>
+      <button onClick={this.handleClick}>hi there! </button>
+      <div
+        onMouseMove={this.handleMouseMove}
+        style={{ border: '1px solid #000', marginTop: 10, padding: 10 }}>
+         <p> {this.state.mouseX}, {this.state.mouseY}</p>
+      </div>
+     </div>
+    )
+  }
+} */
+
+/* class App extends Component {
   render () {
     const numbers = [1 ,1, 3, 4, 5]
 
@@ -86,7 +134,7 @@ class App extends Component {
      </div>
     )
   }
-}
+} */
 
 
 /*class App extends Component {
