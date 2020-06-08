@@ -1,5 +1,11 @@
 import React, { Component } from 'react';
 import PropTypes from 'prop-types';
+import ComponentWillMount from './sections/life-cycle/componentWiilMount'
+import EjemploDeCicloDeActualizacion from './sections/life-cycle/ejemploCicloDeActualizacion'
+import EjemploDeComponentWillUnmount from './sections/life-cycle/componentWillUnmount'
+import EjemploDeComponentDidCatch from './sections/life-cycle/componentDidCatch'
+import Render from './sections/life-cycle/render'
+import FetchExample from './sections/fetch-example'
 import cars from './data/cars.json';
 import Forms from './sections/forms'
 import './App.css';
@@ -104,6 +110,77 @@ class Article extends Component {
 class App extends Component {
   render () {
     return (
+      <div className="App">
+        <EjemploDeComponentWillUnmount />
+        <EjemploDeComponentDidCatch />
+      </div>
+    )
+  }
+}
+
+
+/* class App extends Component {
+  render() {
+    return (
+      <div className="App">
+        <h1>Fetch example</h1> 
+        <FetchExample/>
+        <h1> Ciclo de vida, ciclo de actualizacion</h1>
+        <EjemploDeCicloDeActualizacion/>
+      </div>
+    )
+  }
+} */
+
+
+/*class App extends Component {
+  render() {
+    return (
+      <div className="App">
+        Componente will mount
+        <div>
+          <ComponentWillMount />
+        </div>
+        Componente Render
+        <div>
+          <Render /> 
+        </div>
+      </div>
+    )
+  }
+}*/
+
+
+ /* class App extends Component {
+  //contructor por defecto
+  //constructor(...args) {
+   // super(...args)
+  //}
+
+  constructor (props) {
+    super(props) //este método llama al constructor de Component
+    this.state = {mensajeInicial: 'mensaje inicial'}
+  }
+  handleClick = () => {
+    this.setState({mensajeInicial: 'mensaje cambiado'})
+  }
+  render () {
+    return(
+      <div className="App">
+        <h4> Ciclo de montaje: constructor</h4>
+          { this.state.mensajeInicial }
+        <button onClick={ this.handleClick }>
+          Cambiar Mensaje
+        </button>
+      </div>
+    )
+  }
+}*/
+
+/* children y propTypes
+class App extends Component {
+  render () {
+    return (
       <div className = "App">
         <h4>Children props</h4>
         <Article
@@ -138,7 +215,7 @@ class App extends Component {
       </div>
     )
   }
-}
+}*/
 
 /* 
 
