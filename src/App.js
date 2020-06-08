@@ -1,5 +1,6 @@
 import React, { Component } from 'react';
 import PropTypes from 'prop-types';
+import BitCoinPrice from './sections/container-component'
 import ComponentWillMount from './sections/life-cycle/componentWiilMount'
 import EjemploDeCicloDeActualizacion from './sections/life-cycle/ejemploCicloDeActualizacion'
 import EjemploDeComponentWillUnmount from './sections/life-cycle/componentWillUnmount'
@@ -83,7 +84,15 @@ class Box extends Component {
     )
   }
 }
-class Article extends Component {
+
+class App extends Component {
+  render () {
+    return (
+      <BitCoinPrice />
+    )
+  }
+}
+/*class Article extends Component {
   static propTypes = {
     author: PropTypes.string.isRequired
   }
@@ -105,9 +114,79 @@ class Article extends Component {
       </section>
     )
   }
+}*/
+
+function Article (props) {
+  return (
+    <section>
+      <h2>{props.title}</h2>
+      { props.author && <p> <em>Escrito por {props.author}</em></p> }
+      <date> {props.date}</date>
+      <article>
+        {props.children}
+      </article>
+    </section>
+  )
 }
 
-class App extends Component {
+Article.propTypes = {
+  title: PropTypes.string.isRequired,
+  author: PropTypes.string.isRequired,
+  date: PropTypes.string.isRequired,
+  children: PropTypes.any
+}
+/*class Button extends Component {
+  render () {
+    return (
+      <button style ={{ borderColor: this.props.borderColor, display: 'block'}}>
+        {this.props.label}
+      </button>
+    )
+  }
+}*/
+
+/*const Button = ({ borderColor, label }) => {
+  <button style={{borderColor, display: 'block'}}> 
+    {label}
+  </button>
+}
+
+Button.defaultProps = {
+   borderColor: '#09f'
+} */
+
+/*class ButtonDanger extends Component {
+ render() {
+   return <Button borderColor='red' label={this.props.label}/>
+ }
+} */
+
+/*class ButtonWithLegend extends Component {
+  render () {
+    return (
+      <div>
+        <Button label={this.props.label} borderColor={this.props.borderColor} />
+        <small > {this.props.legend} </small>
+      </div>
+    )
+  }
+}*/
+/*class App extends Component {
+  render() {
+    return (
+      <div className="App">
+         <h4> Composición vs. herencia</h4>
+         <Button label="Click aquí"/>
+         <ButtonDanger label="Cuidado"/>
+         <ButtonWithLegend 
+           label="Boton con explicación"
+           legend="Clicka el botón para hacer algo"/>
+      </div>
+    )
+  }
+}*/
+
+/* class App extends Component {
   render () {
     return (
       <div className="App">
@@ -116,7 +195,7 @@ class App extends Component {
       </div>
     )
   }
-}
+} */
 
 
 /* class App extends Component {
@@ -177,8 +256,8 @@ class App extends Component {
   }
 }*/
 
-/* children y propTypes
-class App extends Component {
+// children y propTypes
+/*class App extends Component {
   render () {
     return (
       <div className = "App">
